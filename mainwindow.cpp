@@ -1,23 +1,7 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 
-#include <chrono>
-#include <cstdint>
-#include <mavsdk/mavsdk.h>
-#include <mavsdk/plugins/action/action.h>
-#include <mavsdk/plugins/telemetry/telemetry.h>
-#include <mavsdk/plugins/mavlink_passthrough/mavlink_passthrough.h>
-#include <iostream>
-#include <future>
-#include <memory>
-#include <thread>
-#include <QDebug>
-#include <QString>
 
-
-using namespace mavsdk;
-using std::chrono::seconds;
-using std::this_thread::sleep_for;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -77,8 +61,10 @@ int MainWindow::InitMav()
     });
 
 
+    telemetry.subscribe_battery(CallBack_Battery);
 
 
+    mavlink_passthrough.subscribe_message(65, CallBack_RC_Channels);
 
     mavlink_passthrough.subscribe_message(65, [](const mavlink_message_t &msg_raw)
                                                  {
@@ -100,5 +86,50 @@ int MainWindow::InitMav()
         }
         );
 
+
+    while(1);
+
     return 0;
+
+}
+
+
+
+void MainWindow::CallBack_Battery(Telemetry::Battery btry)
+{
+    qDebug() << "Callback :: Battery \n";
+
+    qDebug()<<"Battery Voltage : " << btry.voltage_v << " \n";
+
+
+
+    //uint32_t id{0}; /**< @brief Battery ID, for systems with multiple batteries */
+    //float temperature_degc{float(NAN)}; /**< @brief Temperature of the battery in degrees
+    //                                           Celsius. NAN for unknown temperature */
+    //float voltage_v{float(NAN)}; /**< @brief Voltage in volts */
+    //float current_battery_a{float(NAN)}; /**< @brief Battery current in Amps, NAN if autopilot
+    //                                            does not measure the current */
+    //float capacity_consumed_ah{
+    //                           float(NAN)}; /**< @brief Consumed charge in Amp hours, NAN if autopilot does not provide
+    //                       consumption estimate */
+    //float remaining_percent{
+    //                        float(NAN)}; /**< @brief Estimated battery remaining (range: 0 to 100) */
+}
+
+void MainWindow::CallBack_RC_Channels(const mavlink_message_t msg_raw)
+{
+    qDebug() << "Callback :: Recieved RC Transmission \n";
+
+    const mavlink_message_t* msg = &msg_raw;
+    mavlink_rc_channels_t rc_channels;
+    mavlink_msg_rc_channels_decode(msg, &rc_channels);
+    qDebug()<< "Number of channels received: " << int(rc_channels.chancount) << "\n";
+    qDebug() << "Channel 1 : " << rc_channels.chan1_raw << "\n";
+    qDebug() << "Channel 2 : " << rc_channels.chan2_raw << "\n";
+    qDebug() << "Channel 3 : " << rc_channels.chan3_raw << "\n";
+    qDebug() << "Channel 4 : " << rc_channels.chan4_raw << "\n";
+    qDebug() << "Channel 5 : " << rc_channels.chan5_raw << "\n";
+    qDebug() << "Channel 6 : " << rc_channels.chan6_raw << "\n";
+    qDebug() << "Channel 7 : " << rc_channels.chan7_raw << "\n";
+    qDebug() << "Channel 8 : " << rc_channels.chan8_raw << "\n";
 }
