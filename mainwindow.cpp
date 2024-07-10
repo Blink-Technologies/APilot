@@ -146,7 +146,7 @@ int MainWindow::InitMav()
 
     */
 
-    while(1);
+    //while(1);
 
     return 0;
 
