@@ -77,7 +77,7 @@ int MainWindow::InitMav()
     //telemetry.subscribe_battery(CallBack_Battery);
 
 
-    mavlink_passthrough.subscribe_message(65, CallBack_RC_Channels);
+    //mavlink_passthrough.subscribe_message(65, CallBack_RC_Channels);
 
     mavlink_passthrough.subscribe_message(65, [](const mavlink_message_t &msg_raw)
                                                  {

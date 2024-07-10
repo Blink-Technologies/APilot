@@ -669,6 +669,6 @@
  mdp:/usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h
  mdp:/usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h
  mdp:/usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h
+/home/haseeb/pleno/V2/APilot/main.cpp
 /home/haseeb/pleno/V2/APilot/mainwindow.cpp
  uic:./ui_mainwindow.h
-/home/haseeb/pleno/V2/APilot/main.cpp
