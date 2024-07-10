@@ -73,17 +73,21 @@ int MainWindow::InitMav()
     }
 
 
+    /*
     // Set up callback to monitor altitude while the vehicle is in flight
     telemetry.subscribe_position([](Telemetry::Position position)
     {
         qDebug() << "Altitude: " << position.relative_altitude_m << " m\n";
     });
+    */
 
+    /*
     telemetry.subscribe_battery([] (Telemetry::Battery bat)
     {
        qDebug() << "Recieved Battery: \n";
        qDebug()<<"Battery Voltage : " << bat.voltage_v << " \n";
     });
+    */
 
     //telemetry.subscribe_flight_mode([](const FlightModeCallback& callback);
 
@@ -115,6 +119,16 @@ int MainWindow::InitMav()
 
         }
         );
+
+    mavsdk.intercept_incoming_messages_async([](mavlink_message_t& message) {
+        qDebug() << "Got message " << (int)message.msgid << "\n";
+        return true;
+    });
+
+    while (true) {
+        std::this_thread::sleep_for(std::chrono::seconds(1));
+    }
+
 
 
     /*
