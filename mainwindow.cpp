@@ -117,6 +117,8 @@ int MainWindow::InitMav()
         );
 
 
+    /*
+
      qDebug() << "Sleeping Now";
 
     sleep_for(seconds(5));
@@ -141,6 +143,8 @@ int MainWindow::InitMav()
     {
         qDebug() << "DisArming Success \n";
     }
+
+    */
 
     while(1);
 
