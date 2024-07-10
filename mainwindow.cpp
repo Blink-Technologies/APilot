@@ -85,10 +85,11 @@ int MainWindow::InitMav()
        qDebug()<<"Battery Voltage : " << bat.voltage_v << " \n";
     });
 
+    //telemetry.subscribe_flight_mode([](const FlightModeCallback& callback);
 
 
 
-    //telemetry.subscribe_battery(CallBack_Battery);
+    telemetry.subscribe_battery(CallBack_Battery);
 
 
     //mavlink_passthrough.subscribe_message(65, CallBack_RC_Channels);
@@ -108,7 +109,7 @@ int MainWindow::InitMav()
         qDebug() << "Channel 3 : " << rc_channels.chan3_raw << "\n";
         qDebug() << "Channel 4 : " << rc_channels.chan4_raw << "\n";
         qDebug() << "Channel 5 : " << rc_channels.chan5_raw << "\n";
-        qDebug()c << "Channel 6 : " << rc_channels.chan6_raw << "\n";
+        qDebug() << "Channel 6 : " << rc_channels.chan6_raw << "\n";
         qDebug() << "Channel 7 : " << rc_channels.chan7_raw << "\n";
         qDebug() << "Channel 8 : " << rc_channels.chan8_raw << "\n";
 
