@@ -8,6 +8,18 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    tt1 = new QTimer();
+    tt2 = new QTimer();
+    connect(tt1, SIGNAL(timeout()), this, SLOT(onT1()));
+    connect(tt2, SIGNAL(timeout()), this, SLOT(onT2()));
+
+    //tt1->setInterval(5000);
+    //tt2->setInterval(8000);
+
+    //tt1->start();
+    //tt2->start();
+
     InitMav();
 }
 
@@ -33,7 +45,7 @@ int MainWindow::InitMav()
 
 
     //Detect Autopilot Heartbeat
-    auto system = mavsdk.first_autopilot(5);
+    auto system = mavsdk.first_autopilot(3);
     if (!system) {
         qDebug()<<"Timed out waiting for system\n";
         return 1;
@@ -74,6 +86,8 @@ int MainWindow::InitMav()
     });
 
 
+
+
     //telemetry.subscribe_battery(CallBack_Battery);
 
 
@@ -94,13 +108,38 @@ int MainWindow::InitMav()
         qDebug() << "Channel 3 : " << rc_channels.chan3_raw << "\n";
         qDebug() << "Channel 4 : " << rc_channels.chan4_raw << "\n";
         qDebug() << "Channel 5 : " << rc_channels.chan5_raw << "\n";
-        qDebug() << "Channel 6 : " << rc_channels.chan6_raw << "\n";
+        qDebug()c << "Channel 6 : " << rc_channels.chan6_raw << "\n";
         qDebug() << "Channel 7 : " << rc_channels.chan7_raw << "\n";
         qDebug() << "Channel 8 : " << rc_channels.chan8_raw << "\n";
 
         }
         );
 
+
+     qDebug() << "Sleeping Now";
+
+    sleep_for(seconds(5));
+
+    const Action::Result arm_result = action.arm();
+
+    if (arm_result != Action::Result::Success) {
+        qDebug() << "Arming failed \n";
+    }
+    else
+    {
+        qDebug() << "Arming Success \n";
+    }
+
+    sleep_for(seconds(3));
+
+    const Action::Result disarm_result = action.disarm();
+    if (disarm_result != Action::Result::Success) {
+        qDebug() << "DisArming failed \n";
+    }
+    else
+    {
+        qDebug() << "DisArming Success \n";
+    }
 
     while(1);
 
@@ -109,6 +148,14 @@ int MainWindow::InitMav()
 }
 
 
+void MainWindow::onT1()
+{
+}
+
+void MainWindow::onT2()
+{
+
+}
 
 void MainWindow::CallBack_Battery(Telemetry::Battery btry)
 {

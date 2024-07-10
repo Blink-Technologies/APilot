@@ -14,6 +14,7 @@
 #include <thread>
 #include <QDebug>
 #include <QString>
+#include <QTimer>
 
 QT_BEGIN_NAMESPACE
 
@@ -35,10 +36,18 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+protected slots:
+    void onT2();
+private slots:
+    void onT1();
 private:
     Ui::MainWindow *ui;
     int InitMav();
     static void CallBack_RC_Channels(const mavlink_message_t msg_raw);
     static void CallBack_Battery(Telemetry::Battery btry);
+
+    QTimer *tt1;
+    QTimer *tt2;
+
 };
 #endif // MAINWINDOW_H

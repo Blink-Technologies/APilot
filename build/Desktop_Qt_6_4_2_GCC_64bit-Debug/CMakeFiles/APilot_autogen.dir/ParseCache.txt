@@ -3,6 +3,7 @@
  mmc:Q_OBJECT
  mdp:/home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/QDebug
  mdp:/home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/QString
+ mdp:/home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/QTimer
  mdp:/home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/qalgorithms.h
  mdp:/home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/qanystringview.h
  mdp:/home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/qarraydata.h
@@ -11,6 +12,7 @@
  mdp:/home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/qatomic.h
  mdp:/home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/qatomic_cxx11.h
  mdp:/home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/qbasicatomic.h
+ mdp:/home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/qbasictimer.h
  mdp:/home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/qbindingstorage.h
  mdp:/home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/qbytearray.h
  mdp:/home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/qbytearrayalgorithms.h
@@ -80,6 +82,7 @@
  mdp:/home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/qtcore-config.h
  mdp:/home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/qtcoreexports.h
  mdp:/home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/qtextstream.h
+ mdp:/home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/qtimer.h
  mdp:/home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/qtmetamacros.h
  mdp:/home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/qtypeinfo.h
  mdp:/home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/qutf8stringview.h

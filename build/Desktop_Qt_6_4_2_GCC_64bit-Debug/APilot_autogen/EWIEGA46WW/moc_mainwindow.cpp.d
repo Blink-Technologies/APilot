@@ -2,6 +2,7 @@
   /home/haseeb/pleno/V2/APilot/build/Desktop_Qt_6_4_2_GCC_64bit-Debug/APilot_autogen/moc_predefs.h \
   /home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/QDebug \
   /home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/QString \
+  /home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/QTimer \
   /home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/qalgorithms.h \
   /home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/qanystringview.h \
   /home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/qarraydata.h \
@@ -10,6 +11,7 @@
   /home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/qatomic.h \
   /home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/qatomic_cxx11.h \
   /home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/qbasicatomic.h \
+  /home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/qbasictimer.h \
   /home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/qbindingstorage.h \
   /home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/qbytearray.h \
   /home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/qbytearrayalgorithms.h \
@@ -79,6 +81,7 @@
   /home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/qtcore-config.h \
   /home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/qtcoreexports.h \
   /home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/qtextstream.h \
+  /home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/qtimer.h \
   /home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/qtmetamacros.h \
   /home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/qtypeinfo.h \
   /home/haseeb/Qt/6.4.2/gcc_64/include/QtCore/qutf8stringview.h \
